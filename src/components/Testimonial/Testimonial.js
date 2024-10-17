@@ -1,6 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import { AiFillStar } from "react-icons/ai";
+import { useRouter } from "next/router";
 
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -15,6 +16,12 @@ import { Pagination } from "swiper/modules";
 import { loremMessage, profiles } from "./TestimonialData";
 
 const Testimonial = () => {
+  const router = useRouter();
+
+  // Check if the current route is the home page
+  if (router.pathname !== "/") {
+    return null;
+  }
   return (
     <>
         <div className="h-[90vh] flex flex-col items-center justify-center bg-[#fbfafe]">
